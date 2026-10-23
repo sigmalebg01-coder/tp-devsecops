@@ -1,0 +1,14 @@
+{
+    "result":  [
+                   {
+                       "metric":  {
+
+                                  },
+                       "value":  [
+                                     1792770886.291,
+                                     "0.009499999999999998"
+                                 ]
+                   }
+               ],
+    "query":  "histogram_quantile(0.95, sum by (le) (rate(http_request_duration_seconds_bucket[1m])))"
+}

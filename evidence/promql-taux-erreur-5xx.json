@@ -1,0 +1,14 @@
+{
+    "result":  [
+                   {
+                       "metric":  {
+
+                                  },
+                       "value":  [
+                                     1792770886.283,
+                                     "0"
+                                 ]
+                   }
+               ],
+    "query":  "100 * (sum(rate(http_requests_total{status=~\"5..\"}[1m])) or vector(0)) / clamp_min(sum(rate(http_requests_total[1m])), 0.001)"
+}

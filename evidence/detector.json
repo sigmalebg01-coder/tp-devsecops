@@ -1,0 +1,21 @@
+{
+  "verdict": "OK",
+  "error_ratio": 0.0,
+  "window_requests": 9.6,
+  "window_errors": 0.0,
+  "baseline_points": 57,
+  "baseline_mean": 0.0,
+  "zscore": 0.0,
+  "thresholds": {
+    "ratio": 0.2,
+    "zscore": 3.0,
+    "min_requests": 5,
+    "window_steps": 4
+  },
+  "reasons": [
+    "fenetre = 4 derniers pas ; 10 requetes, 0 erreurs 5xx ; taux = 0.0%",
+    "taux sous les seuils"
+  ],
+  "evaluated_at": "2026-10-23T15:54:25Z",
+  "points": 61
+}

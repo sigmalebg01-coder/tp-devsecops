@@ -1,0 +1,88 @@
+{
+  "generated_at": "2026-10-23T15:58:06Z",
+  "mode": "simulated",
+  "model": null,
+  "note": "Ollama indisponible (aucun modele Ollama installe) : mode simule",
+  "change": {
+    "version": "2.4.7",
+    "previous_version": "2.4.6",
+    "deployed_at": null,
+    "note": "evidence/change.json absent : heure du changement inconnue"
+  },
+  "detector": {
+    "verdict": "OK",
+    "error_ratio": 0.0,
+    "window_requests": 9.6,
+    "window_errors": 0.0,
+    "baseline_points": 57,
+    "baseline_mean": 0.0,
+    "zscore": 0.0,
+    "thresholds": {
+      "ratio": 0.2,
+      "zscore": 3.0,
+      "min_requests": 5,
+      "window_steps": 4
+    },
+    "reasons": [
+      "fenetre = 4 derniers pas ; 10 requetes, 0 erreurs 5xx ; taux = 0.0%",
+      "taux sous les seuils"
+    ]
+  },
+  "log_summary": {
+    "lines_analysed": 128,
+    "status_counts": {
+      "200": 7
+    },
+    "versions_seen": [
+      "2.4.6"
+    ],
+    "error_lines": 0,
+    "first_error_ts": null,
+    "first_db_connection_timeout_ts": null
+  },
+  "analysis": {
+    "symptoms": [
+      "Taux d'erreurs 5xx de 0.0% sur la fenetre, verdict OK",
+      "Statuts dans les logs : {'200': 7}"
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "La version 2.4.7 introduit une regression de connexion a la base (correlation temporelle uniquement)",
+        "confidence": "medium",
+        "evidence": "1re erreur None ; changement None ; versions vues : ['2.4.6']"
+      },
+      {
+        "hypothesis": "La base de donnees est saturee ou indisponible independamment de la livraison",
+        "confidence": "low",
+        "evidence": "Aucune metrique cote base disponible pour trancher"
+      },
+      {
+        "hypothesis": "Probleme reseau/DNS entre l'API et la base",
+        "confidence": "low",
+        "evidence": "Message db_connection_timeout compatible, non verifie"
+      }
+    ],
+    "evidence": [
+      "db_connection_timeout vu a None",
+      "z-score = 0.0, baseline = 57 points"
+    ],
+    "non_destructive_checks": [
+      "Comparer la configuration (pool, timeouts) entre les versions precedente et courante",
+      "Lire en lecture seule les metriques de la base (connexions, latence)",
+      "Verifier la resolution DNS et la joignabilite reseau depuis le conteneur API"
+    ],
+    "limits": [
+      "Mode SIMULE : aucune analyse LLM reelle",
+      "Pas de metriques cote base de donnees",
+      "Correlation temporelle != causalite"
+    ],
+    "proposed_remediation": "Rollback de 2.4.7 vers 2.4.6 (a valider par un humain, non execute)"
+  },
+  "safeguards": {
+    "logs_treated_as_untrusted_data": true,
+    "llm_tools_or_docker_socket": "none",
+    "secrets_masked": true,
+    "log_volume_bounded": true,
+    "remediation_status": "PENDING_HUMAN_APPROVAL"
+  }
+}

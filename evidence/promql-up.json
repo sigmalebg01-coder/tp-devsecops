@@ -1,0 +1,16 @@
+{
+    "result":  [
+                   {
+                       "metric":  {
+                                      "__name__":  "up",
+                                      "instance":  "api:8000",
+                                      "job":  "techcorp-api"
+                                  },
+                       "value":  [
+                                     1792770886.185,
+                                     "1"
+                                 ]
+                   }
+               ],
+    "query":  "up{job=\"techcorp-api\"}"
+}

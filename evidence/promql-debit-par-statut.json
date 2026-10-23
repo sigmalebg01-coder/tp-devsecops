@@ -1,0 +1,14 @@
+{
+    "result":  [
+                   {
+                       "metric":  {
+                                      "status":  "200"
+                                  },
+                       "value":  [
+                                     1792770886.276,
+                                     "0.07273256236817223"
+                                 ]
+                   }
+               ],
+    "query":  "sum by (status) (rate(http_requests_total[1m]))"
+}

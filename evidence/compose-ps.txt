@@ -1,0 +1,4 @@
+NAME                           IMAGE                     COMMAND                  SERVICE      CREATED         STATUS                   PORTS
+techcorp-orders-api-1          techcorp/orders-api:lab   "uvicorn app.main:apÔÇª"   api          6 minutes ago   Up 6 minutes (healthy)   127.0.0.1:8000->8000/tcp
+techcorp-orders-grafana-1      grafana/grafana:latest    "/run.sh"                grafana      7 hours ago     Up 7 hours               127.0.0.1:3000->3000/tcp
+techcorp-orders-prometheus-1   prom/prometheus:latest    "/bin/prometheus --cÔÇª"   prometheus   7 hours ago     Up 7 hours               127.0.0.1:9090->9090/tcp

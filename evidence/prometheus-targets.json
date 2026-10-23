@@ -1,0 +1,36 @@
+{
+    "activeTargets":  [
+                          {
+                              "discoveredLabels":  {
+                                                       "__address__":  "api:8000",
+                                                       "__always_scrape_classic_histograms__":  "false",
+                                                       "__convert_classic_histograms_to_nhcb__":  "false",
+                                                       "__metrics_path__":  "/metrics",
+                                                       "__scheme__":  "http",
+                                                       "__scrape_interval__":  "5s",
+                                                       "__scrape_native_histograms__":  "false",
+                                                       "__scrape_timeout__":  "5s",
+                                                       "job":  "techcorp-api"
+                                                   },
+                              "labels":  {
+                                             "instance":  "api:8000",
+                                             "job":  "techcorp-api"
+                                         },
+                              "scrapePool":  "techcorp-api",
+                              "scrapeUrl":  "http://api:8000/metrics",
+                              "globalUrl":  "http://api:8000/metrics",
+                              "lastError":  "",
+                              "lastScrape":  "2026-10-23T15:54:46.093162096Z",
+                              "lastScrapeDuration":  0.003792596,
+                              "health":  "up",
+                              "scrapeInterval":  "5s",
+                              "scrapeTimeout":  "5s"
+                          }
+                      ],
+    "droppedTargets":  [
+
+                       ],
+    "droppedTargetCounts":  {
+                                "techcorp-api":  0
+                            }
+}
