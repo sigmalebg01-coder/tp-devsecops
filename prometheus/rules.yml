@@ -1,0 +1,11 @@
+groups:
+  - name: techcorp-api
+    rules:
+      - alert: ElevatedHTTP500
+        # Seuil fixe : plus de 5 reponses HTTP 500 sur 2 minutes, maintenu 15 s
+        expr: sum(increase(http_requests_total{status="500"}[2m])) > 5
+        for: 15s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Plus de 5 erreurs HTTP 500 sur 2 minutes (Orders API)"
