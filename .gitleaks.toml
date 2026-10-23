@@ -1,0 +1,7 @@
+title = "TECHCORP gitleaks"
+
+[extend]
+useDefault = true
+
+# Aucune exception par defaut : toute exception doit etre justifiee et approuvee
+# (voir docs/quality-gate.md).

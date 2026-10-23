@@ -1,0 +1,3 @@
+# Exceptions approuvees uniquement (format : ID-CVE  # justification | approuve par | expire le AAAA-MM-JJ)
+# Vide par defaut. Exemple :
+# CVE-2099-0000  # faux positif : fonction non appelee | approuve par: X | expire: 2026-12-31

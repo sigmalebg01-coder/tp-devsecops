@@ -1,0 +1,48 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# Principe du moindre privilège : le GITHUB_TOKEN ne peut que lire le dépôt
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pytest -q
+
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Gitleaks (détection de secrets, quality gate bloquant)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  trivy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Trivy - dépendances, secrets et configuration (bloque sur HIGH/CRITICAL corrigeables)
+        run: |
+          docker run --rm -v "$PWD:/src" aquasec/trivy:latest fs \
+            --scanners vuln,secret,misconfig --severity HIGH,CRITICAL \
+            --ignore-unfixed --ignorefile /src/.trivyignore --exit-code 1 /src
+      - name: Build de l'image
+        run: docker build -t orders-api:ci . && docker save orders-api:ci -o image.tar
+      - name: Trivy - image Docker (bloque sur HIGH/CRITICAL corrigeables)
+        run: |
+          docker run --rm -v "$PWD:/w" aquasec/trivy:latest image --input /w/image.tar \
+            --severity HIGH,CRITICAL --ignore-unfixed --ignorefile /w/.trivyignore --exit-code 1
