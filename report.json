@@ -83,6 +83,13 @@
     "llm_tools_or_docker_socket": "none",
     "secrets_masked": true,
     "log_volume_bounded": true,
-    "remediation_status": "PENDING_HUMAN_APPROVAL"
+    "remediation_status": "APPROVED"
+  },
+  "approval": {
+    "decision": "approved",
+    "by": "matheo",
+    "at": "2026-10-23T15:59:18Z",
+    "remediation": "Rollback de 2.4.7 vers 2.4.6 (a valider par un humain, non execute)",
+    "executed_by_this_tool": false
   }
 }

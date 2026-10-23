@@ -60,3 +60,8 @@ Rollback de 2.4.7 vers 2.4.6 (a valider par un humain, non execute)
   "first_db_connection_timeout_ts": null
 }
 ```
+
+## Decision humaine
+- Decision : **approved** par matheo le 2026-10-23T15:59:18Z
+- Remediation concernee : Rollback de 2.4.7 vers 2.4.6 (a valider par un humain, non execute)
+- Cet outil n'execute aucune action : l'operation reste a realiser par un humain.
